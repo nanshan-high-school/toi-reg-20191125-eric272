@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "請輸入雨量:";
+    float rain;
+    int allrain[50][50] = {0};
+    int test[1000] = {0};
+    int test2[100] = {0};
+    int i,j,k,l,q,m,n;
+    for (i = 0; i < 7; i++) {
+        for (j = 0; j < 4; j++) {
+            cin >> rain;
+            allrain[i][j] += rain;
+        }
+    }
+    for (k = 0; k < 7; k++) {
+        for (l = 0; l < 4; l++) {
+            if (allrain[k][l] > allrain[k][l+1]) {
+               test[k] += allrain[k][l];
+               n = l;
+            }
+        }
+    }
+    for (q = 0; q < 7 ; q++) {
+        if (test[q] > test[q+1]) {
+           m = q;
+        }     
+    }
+    if (n == 1) {
+        cout << m << "\n" << "morning";
+    } else if (n == 2) {
+        cout << m << "\n" << "afternoon";
+    } else if (n == 3) {
+        cout << m << "\n" << "night";
+    } else{
+        cout << m << "\n" << "earlymorning";
+    }       
+}//272 31 655327 陳麒元
